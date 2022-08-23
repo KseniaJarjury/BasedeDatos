@@ -1,12 +1,9 @@
 # BasedeDatos
  Trabajo practico final con todo lo aprendido en Base de Datos I y II
+ 
 Modelo Entidad Relación – MER
 
 ![DiagramaEntidadRelacion](https://user-images.githubusercontent.com/100300372/186252118-09e7875d-153d-4df4-8fb7-f7193afd1bc2.png)
-
-
-
-
 
 
 
