@@ -1,0 +1,84 @@
+Esquema de la Relación
+CLIENTE (nro_Cliente, nombre, apellido)
+ORDEN_COMPRA (nro_orden, fecha, nro_cliente)
+DETALLE_ORDEN (nro_detalle, cantidad, precio, descuento, nro_orden, id_mineral)
+FAMILIA_MINERAL (id_familia_minerales, familia, descripcion)
+MINERAL (id_mineral, mineral, stock, precio, id_familia_minerales)
+YACIMIENTO (id_yacimiento, nombre_yacimiento, id_mineral)
+ESTA_COMPUESTA(id_version, id_yacimiento)
+INVERSION (id_inversion, duracion, monto, rentabilidad)
+FINANCIAMIENTO (id_financiamiento, financiamiento, id_inversion)
+CONTIENE (id_mineral, id_estudio)
+ESTUDIO_SUELO (id_estudio, costo, resultado, prolongacion, nro_resolucion, nro_localidad, nro_provincia)
+CONSESION_EXPLOTACION (nro_resolucion, vigencia_inicio, vigencia_fin, nro_castro, canon)
+LOCALIDAD (nro_localidad, nombre_localidad, codigo_postal, nro_provincia)
+PROVINCIA (nro_provincia, nombre_provincia)
+ESTABLECIMIENTO (nro_establecimiento, nombre_establecimiento, calle, numero, piso, nro_localidad, nro_provincia, nro_rubro, id_actividad)
+RUBRO (nro_rubro, rubro)
+ACTIVIDAD (id_actividad, actividades)
+
+
+
+
+
+
+Restricciones Adicionales
+-ORDEN_COMPRA (nro_orden, fecha, nro_cliente)
+-CLIENTE (nro_Cliente, nombre, apellido)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+ORDEN_COMPRA.nro_cliente no puede ser nulo.
+CLIENTE.nro_cliente puede no estar en ORDEN_COMPRA.nro_cliente.
+
+-DETALLE_ORDEN (nro_detalle, cantidad, precio, descuento, nro_orden, id_mineral)
+-ORDEN_COMPRA (nro_orden, fecha, nro_cliente)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+DETALLE_ORDEN.nro_orden no pueden ser nulo.
+ORDEN_COMPRA.nro_orden puede no estar en DETALLE_ORDEN.nro_orden.
+
+-DETALLE_ORDEN (nro_detalle, cantidad, precio, descuento, nro_orden, id_mineral)
+-MINERAL (id_mineral, mineral, stock, precio, id_familia_minerales)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+DETALLE_ORDEN.id_mineral no puede ser nulo.
+MINERAL.id_mineral puede no estar en DETALLE_ORDEN.id_mineral.
+
+-MINERAL (id_mineral, mineral, stock, precio, id_familia_minerales)
+-FAMILIA_MINERAL (id_familia_minerales, familia, descripcion)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+MINERAL.id_familia_minerales no puede ser nulo.
+FAMILIA_MINERAL.id_familia_minerales  puede no estar en MINERAL.id_familia_minerales.
+
+-YACIMIENTO (id_yacimiento, nombre_yacimiento, id_mineral)
+-MINERAL (id_mineral, mineral, stock, precio, id_familia_minerales)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+YACIMIENTO.id_mineral no puede ser nulo.
+MINERAL.id_mineral puede no estar en YACIMIENTO.id_mineral.
+
+-ESTUDIO_SUELO (id_estudio, costo, resultado, prolongacion, nro_resolucion, nro_localidad, nro_provincia)
+-LOCALIDAD (nro_localidad, nombre_localidad, codigo_postal, nro_provincia)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+ESTUDIO_SUELO.nro_localidad no puede ser nulo.
+LOCALIDAD.nro_localidad puede no estar en ESTUDIO_SUELO.nro_localidad.
+
+-LOCALIDAD (nro_localidad, nombre_localidad, codigo_postal, nro_provincia)
+-PROVINCIA (nro_provincia, nombre_provincia)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+LOCALIDAD. nro_provincia no puede ser nulo.
+PROVINCIA.nro_provincia puede no estar en LOCALIDAD. nro_provincia.
+
+-ESTABLECIMIENTO (nro_establecimiento, nombre_establecimiento, calle, numero, piso, nro_localidad, nro_provincia, nro_rubro, id_actividad)
+-LOCALIDAD (nro_localidad, nombre_localidad, codigo_postal, nro_provincia)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+ESTABLECIMIENTO.nro_localidad no puede ser nulo.
+LOCALIDAD.nro_localidad puede no estar en ESTABLECIMIENTO.nro_localidad.
+
+-ESTABLECIMIENTO (nro_establecimiento, nombre_establecimiento, calle, numero, piso, nro_localidad, nro_provincia, nro_rubro, id_actividad)
+-ACTIVIDAD (id_actividad, actividades)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+ESTABLECIMIENTO.id_actividad no puede ser nulo.
+ACTIVIDAD.id_actividad puede no estar en ESTABLECIMIENTO.id_actividad.
+
+-ESTABLECIMIENTO (nro_establecimiento, nombre_establecimiento, calle, numero, piso, nro_localidad, nro_provincia, nro_rubro, id_actividad)
+-RUBRO (nro_rubro, rubro)
+Establecemos la siguiente restricción adicional en este esquema de relación:
+ESTABLECIMIENTO.nro_rubro no puede ser nulo.
+RUBRO.nro_rubro puede no estar en ESTABLECIMIENTO.nro_rubro.
